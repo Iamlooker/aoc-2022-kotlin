@@ -1,17 +1,14 @@
 fun main() {
-    fun part1(input: List<String>): Int {
-        return input.size
+    fun part1(input: String): Int {
+        val data = input.split("\r\n\r\n").map { elfData ->
+            elfData.lines().sumOf { it.toInt() }
+        }
+        return data.sorted().takeLast(3).sum()
     }
 
-    fun part2(input: List<String>): Int {
-        return input.size
-    }
+//    val testInput = readFile("Day01_test")
+//    check(part1(testInput) == 45000)
 
-    // test if implementation meets criteria from the description, like:
-    val testInput = readInput("Day01_test")
-    check(part1(testInput) == 1)
-
-    val input = readInput("Day01")
+    val input = readFile("Day01")
     println(part1(input))
-    println(part2(input))
 }
